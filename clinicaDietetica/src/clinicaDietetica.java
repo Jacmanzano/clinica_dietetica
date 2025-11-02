@@ -25,16 +25,17 @@ public class clinicaDietetica {
 			sumaEstatura += pac_clinica[x].estatura;
 			
 			if(pac_clinica[x].edad > edadMax) {
-				pac_clinica[x].edad = edadMax;
-			} else if (pac_clinica[x].edad < edadMax) {
-				pac_clinica[x].edad = edadMin;
+				edadMax = pac_clinica[x].edad;
 			}
 			
+			if(pac_clinica[x].edad < edadMax) {
+				edadMin = pac_clinica[x].edad;
+			}
 		}
 		double mediaPeso = sumaPeso / pac_clinica.length;
 		double mediaEstatura = sumaEstatura / pac_clinica.length;
 		
-		JOptionPane.showMessageDialog(null,"RESULTADO FINAL:" + "\nLa media de Peso es: " + mediaPeso + "\nLa media de estatura es: " + mediaEstatura);
+		JOptionPane.showMessageDialog(null,"RESULTADO FINAL:" + "\nLa edad maxima es: " + edadMax + "\nLa edad minima es: " + edadMin + "\nLa media de Peso es: " + mediaPeso + "\nLa media de estatura es: " + mediaEstatura);
 	}
 }
 
